@@ -30,12 +30,13 @@ function createQRContainer() {
         
         // 获取网站信息
         const siteName = document.domain;
-        const pageTitle = document.title.substring(0, 15);
+        const fullTitle = document.title;
+        const truncatedTitle = fullTitle.substring(0, 15) + (fullTitle.length > 15 ? '...' : '');
         
         // 设置网站信息
         infoDiv.innerHTML = `
-            <div class="domain">${siteName}</div>
-            <div class="title">${pageTitle}</div>
+            <div class="qr-extension-domain">${siteName}</div>
+            <div class="qr-extension-title">${truncatedTitle}</div>
         `;
         
         // 创建二维码图片
